@@ -15,8 +15,9 @@ type Mx struct {
 
 // NewMxByValue
 // Constructor to build object by Value, if fromApi = true, try to load from API
-func NewMxByValue(value string, fromApi bool) (o *Mx, err error) {
-	o.Name = value
+func NewMxByValue(value string, fromApi bool) (*Mx, error) {
+	o := &Mx{Name: value}
+	var err error
 	if fromApi == true {
 		err = o.Load()
 	}
