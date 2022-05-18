@@ -6,10 +6,6 @@ import (
 	"strconv"
 )
 
-const (
-	ApiName = "ip"
-)
-
 type Ip struct {
 	Id        int    `json:"ip_id,omitempty"`
 	Value     string `json:"ip_value"`
@@ -50,11 +46,11 @@ func NewIpById(value int, fromApi bool) (i *Ip, err error) {
 // Function used to load the Object to Api
 func (o *Ip) Load() (err error) {
 	if o.Id > 0 {
-		query := ApiUrl + ApiName + "/?ip_id=" + strconv.Itoa(o.Id)
+		query := ApiUrl + "ip" + "/?ip_id=" + strconv.Itoa(o.Id)
 		b := getObjectFromApi(query)
 		fmt.Println(b)
 	} else if o.Value != "" {
-		query := ApiUrl + ApiName + "/?ip_value=" + o.Value
+		query := ApiUrl + "ip" + "/?ip_value=" + o.Value
 		b := getObjectFromApi(query)
 		fmt.Println(b)
 	} else {
