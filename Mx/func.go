@@ -17,6 +17,14 @@ func checkStruct() {
 			fmt.Println("Error : " + name + " doesn't exist on production Api")
 		}
 	}
+	for name, param := range mapJson {
+		fmt.Println(name, param)
+		if _, ok := params[name]; ok {
+			fmt.Println("Ok : " + name + "  exist on production Api")
+		} else {
+			fmt.Println("Error : " + name + " doesn't exist on production Api")
+		}
+	}
 }
 
 // NewMxByValue
