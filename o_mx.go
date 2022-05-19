@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"strconv"
+
 )
 
 type Mx struct {
@@ -28,13 +29,13 @@ func NewMxByValue(value string, fromApi bool) (*Mx, error) {
 // Function used to load the Object to Api
 func (o *Mx) Load() (err error) {
 	if o.Id > 0 {
-		query := ApiUrl + "ip" + "/?mx_id=" + strconv.Itoa(o.Id)
-		b := getObjectFromApi(query)
+		b := getObjectFromApi(ApiUrl + "mx" + "/?mx_id=" + strconv.Itoa(o.Id))
 		fmt.Println(b)
 	} else if o.Name != "" {
-		query := ApiUrl + "ip" + "/?mx_name=" + o.Name
-		b := getObjectFromApi(query)
-		fmt.Println(b)
+		b := getObjectFromApi(ApiUrl + "mx" + "/?mx_name=" + o.Name)
+		v,_:=b.(map[string]interface{})
+		o.Id,_=strconv.Atoi(fmt.Sprint(v["mx_id"]))
+
 	} else {
 		return errors.New("please set Id or Name before querying")
 	}
