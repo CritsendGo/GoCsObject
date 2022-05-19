@@ -1,6 +1,9 @@
 package Mx
 
-import "go/types"
+import (
+	"fmt"
+	"go/types"
+)
 
 const apiName = "mx"
 
@@ -29,5 +32,6 @@ func init() {
 	mapName["Updatable"] = types.Bool
 	mapName["Removable"] = types.Bool
 	// Check on first load if current object is the same that the production
-	checkStruct()
+	err := checkStruct()
+	fmt.Println(err)
 }
