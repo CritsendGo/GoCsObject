@@ -12,13 +12,13 @@ func checkStruct() error {
 	for name, _ := range params {
 		if _, ok := mapJson[name]; ok {
 		} else {
-			return errors.New("Error : " + name + " doesn't exist on production Api)")
+			return errors.New("Error : " + name + " doesn't exist on production Api, please check/update your code version")
 		}
 	}
 	for name, _ := range mapJson {
 		if _, ok := params[name]; ok {
 		} else {
-			return errors.New("Error : " + name + " doesn't exist on production Api)")
+			return errors.New("Error : " + name + " doesn't exist on production Api, please check/update your code version ")
 		}
 	}
 	return nil
