@@ -7,24 +7,25 @@ import (
 	"strconv"
 )
 
-func checkStruct() {
+func checkStruct() error {
 	params := GoCsObject.CompareObject(apiName)
 	for name, param := range params {
 		fmt.Println(name, param)
 		if _, ok := mapJson[name]; ok {
-			fmt.Println("Ok : " + name + "  exist on production Api")
+			//fmt.Println("Ok : " + name + "  exist on production Api")
 		} else {
-			fmt.Println("Error : " + name + " doesn't exist on production Api")
+			return errors.New("Error : " + name + " doesn't exist on production Api)")
 		}
 	}
 	for name, param := range mapJson {
 		fmt.Println(name, param)
 		if _, ok := params[name]; ok {
-			fmt.Println("Ok : " + name + "  exist on production Api")
+			//fmt.Println("Ok : " + name + "  exist on production Api")
 		} else {
-			fmt.Println("Error : " + name + " doesn't exist on production Api")
+			return errors.New("Error : " + name + " doesn't exist on production Api)")
 		}
 	}
+	return nil
 }
 
 // NewMxByValue
