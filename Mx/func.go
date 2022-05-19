@@ -12,7 +12,7 @@ func checkStruct() {
 	for name, param := range params {
 		fmt.Println(name, param)
 		if _, ok := mapJson[name]; ok {
-			//do something here
+			fmt.Println("Ok : " + name + "  exist on production Api")
 		} else {
 			fmt.Println("Error : " + name + " doesn't exist on production Api")
 		}
