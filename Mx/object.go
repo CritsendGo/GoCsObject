@@ -25,9 +25,9 @@ func init() {
 	// Name Struct
 	mapName = make(map[string]types.BasicKind)
 	mapName["Id"] = types.Int
-	mapJson["Name"] = types.String
-	mapJson["Updatable"] = types.Bool
-	mapJson["Removable"] = types.Bool
+	mapName["Name"] = types.String
+	mapName["Updatable"] = types.Bool
+	mapName["Removable"] = types.Bool
 	// Check on first load if current object is the same that the production
 	checkStruct()
 }
