@@ -14,7 +14,7 @@ const (
 func CompareObject(apiName string) /*map[string]types.BasicKind*/ {
 	// Build Simple Object
 	client := http.Client{}
-	req, err := http.NewRequest("OPTION", ApiUrl+apiName, nil)
+	req, err := http.NewRequest("OPTIONS", ApiUrl+apiName, nil)
 	if err != nil {
 		//todo:Check if object doesn't exist
 	}
