@@ -1,4 +1,4 @@
-package Mx
+package GoCsObject
 
 import (
 	"errors"
