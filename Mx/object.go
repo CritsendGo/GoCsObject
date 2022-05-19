@@ -2,6 +2,8 @@ package Mx
 
 import "go/types"
 
+const apiName = "mx"
+
 type Mx struct {
 	Id        int    `json:"mx_id,omitempty"`
 	Name      string `json:"mx_name"`
@@ -25,4 +27,6 @@ func init() {
 	mapJson["Name"] = types.String
 	mapJson["Updatable"] = types.Bool
 	mapJson["Removable"] = types.Bool
+	// Check on first load if current object is the same that the production
+	checkStruct()
 }

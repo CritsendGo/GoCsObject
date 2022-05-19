@@ -7,6 +7,10 @@ import (
 	"strconv"
 )
 
+func checkStruct() {
+	GoCsObject.CompareObject(apiName)
+}
+
 // NewMxByValue
 // Constructor to build object by Value, if fromApi = true, try to load from API
 func NewMxByValue(value string, fromApi bool) (*Mx, error) {

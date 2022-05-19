@@ -2,6 +2,7 @@ package GoCsObject
 
 import (
 	"fmt"
+	"go/types"
 	"io/ioutil"
 	"net/http"
 )
@@ -10,6 +11,11 @@ const (
 	ApiUrl   = "https://api.critsend.io/"
 	ApiToken = ""
 )
+
+type ObjectField struct {
+	Name string
+	Type types.BasicKind
+}
 
 func CompareObject(apiName string) /*map[string]types.BasicKind*/ {
 	// Build Simple Object
