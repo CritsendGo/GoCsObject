@@ -47,11 +47,11 @@ func NewIpById(value int, fromApi bool) (i *Ip, err error) {
 func (o *Ip) Load() (err error) {
 	if o.Id > 0 {
 		query := ApiUrl + "ip" + "/?ip_id=" + strconv.Itoa(o.Id)
-		b := getObjectFromApi(query)
+		b := GetObjectFromApi(query)
 		fmt.Println(b)
 	} else if o.Value != "" {
 		query := ApiUrl + "ip" + "/?ip_value=" + o.Value
-		b := getObjectFromApi(query)
+		b := GetObjectFromApi(query)
 		fmt.Println(b)
 	} else {
 		return errors.New("please set Id or Value before querying")

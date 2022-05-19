@@ -1,17 +1,11 @@
-package GoCsObject
+package Mx
 
 import (
 	"errors"
 	"fmt"
+	"github.com/CritsendGo/GoCsObject"
 	"strconv"
 )
-
-type Mx struct {
-	Id        int    `json:"mx_id,omitempty"`
-	Name      string `json:"mx_name"`
-	Updatable string `json:"ip_updatable,omitempty"`
-	Removable bool   `json:"is_removable"`
-}
 
 // NewMxByValue
 // Constructor to build object by Value, if fromApi = true, try to load from API
@@ -28,12 +22,12 @@ func NewMxByValue(value string, fromApi bool) (*Mx, error) {
 // Function used to load the Object to Api
 func (o *Mx) Load() (err error) {
 	if o.Id > 0 {
-		query := ApiUrl + "ip" + "/?mx_id=" + strconv.Itoa(o.Id)
-		b := getObjectFromApi(query)
+		query := GoCsObject.ApiUrl + "ip" + "/?mx_id=" + strconv.Itoa(o.Id)
+		b := GoCsObject.GetObjectFromApi(query)
 		fmt.Println(b)
 	} else if o.Name != "" {
-		query := ApiUrl + "ip" + "/?mx_name=" + o.Name
-		b := getObjectFromApi(query)
+		query := GoCsObject.ApiUrl + "ip" + "/?mx_name=" + o.Name
+		b := GoCsObject.GetObjectFromApi(query)
 		fmt.Println(b)
 	} else {
 		return errors.New("please set Id or Name before querying")
