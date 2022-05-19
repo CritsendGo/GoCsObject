@@ -8,7 +8,15 @@ import (
 )
 
 func checkStruct() {
-	GoCsObject.CompareObject(apiName)
+	params := GoCsObject.CompareObject(apiName)
+	for name, param := range params {
+		fmt.Println(name, param)
+		if _, ok := mapJson[name]; ok {
+			//do something here
+		} else {
+			fmt.Println("Error : " + name + " doesn't exist on production Api")
+		}
+	}
 }
 
 // NewMxByValue

@@ -21,6 +21,7 @@ func init() {
 	mapJson["mx_name"] = types.String
 	mapJson["ip_updatable"] = types.Bool
 	mapJson["is_removable"] = types.Bool
+	mapJson["last_update"] = types.Bool
 	// Name Struct
 	mapName = make(map[string]types.BasicKind)
 	mapName["Id"] = types.Int
